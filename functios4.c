@@ -17,3 +17,27 @@ bool isInteger(const char *str)
 
     return true;
 }
+
+stack_t *createNode(int n)
+{
+    stack_t *node = malloc(sizeof(stack_t));
+
+    if(node == NULL)
+    errorHandler(5);
+
+    node->n = n;
+    node->prev = NULL;
+    node->next = NULL;
+
+    return (node);
+}
+
+
+void handlePush(int n, unsigned int lineNumber)
+{
+    stack_t *node;
+
+    node = createNode(n);
+    
+    pushFunc(&node, lineNumber);
+}

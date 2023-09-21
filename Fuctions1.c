@@ -1,8 +1,21 @@
 #include "monty.h"
 
-void pallFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void pallFunc(stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
 {
-    printf("pall\n");
+    stack_t *temp;
+
+    temp = *stack;
+
+    if(temp == NULL)
+    return;
+
+    while (temp->next != NULL)
+    {
+        printf("%d\n", temp->n);
+        temp = temp->next;
+    }
+    printf("%d\n", temp->n);
+
 }
 
 void pintFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)

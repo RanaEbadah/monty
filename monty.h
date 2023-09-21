@@ -40,7 +40,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *mystack;
+extern stack_t *head;
 
 /* FileOps*/
 void openFile(char *fileName);
@@ -73,9 +73,12 @@ void commentFunc(stack_t **stack, unsigned int line_number);
 void pcharFunc(stack_t **stack, unsigned int line_number);
 void pstrFunc(stack_t **stack, unsigned int line_number);
 void rotlFunc(stack_t **stack, unsigned int line_number);
+void pushFunc(stack_t **stack, __attribute__((__unused__)) unsigned int line_number);
 
 
 /*Functions4.c*/
 bool isInteger(const char *str);
+stack_t *createNode(int n);
+void handlePush(int n, unsigned int lineNumber);
 
 #endif /* MONTY_H */

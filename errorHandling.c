@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/*
+* 1 -> USAGE: monty file
+* 2 -> can not open the file
+* 3 -> unknown instruction
+* 4 -> push integer
+* 5 -> memory allocation failed
+*/
 void errorHandler(int errId, ...)
 {
     va_list ag;
@@ -19,6 +25,9 @@ void errorHandler(int errId, ...)
         break;
     case 4:
         fprintf(stderr,"L%u: usage: push integer\n", va_arg(ag, unsigned int));
+        break;
+    case 5:
+        fprintf(stderr, "Error: malloc failed\n");
         break;
     default:
         break;

@@ -64,6 +64,7 @@ void removeExtraSpaces(char str[])
 void mnupilateReadedLine(char line[], unsigned int lineNumber)
 {
     char *token;
+
     int tokenCount = 1;
 
     token = strtok(line, " ");
@@ -92,7 +93,7 @@ void mnupilateReadedLine(char line[], unsigned int lineNumber)
         errorHandler(4, lineNumber);
         else
         {
-            printf("push is ok \n");
+            handlePush(atoi(token), lineNumber);
         }
     }
     else
@@ -115,7 +116,7 @@ void findtheFunction(char *opCode, unsigned int lineNumber)
     {
         if(strcmp(opCode, instructions[i].opcode) == 0)
         {
-            instructions[i].f(&mystack, lineNumber);
+            instructions[i].f(&head, lineNumber);
             done = 1;
         }
 

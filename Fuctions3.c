@@ -20,7 +20,13 @@ void rotlFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unus
     printf("rotl\n");
 }
 
-void pushlFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void pushFunc(stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
 {
-    printf("push\n");
+    if (head == NULL)
+    head = *stack;
+    else
+    {
+        (*stack)->next = head;
+        head = *stack;
+    }
 }
