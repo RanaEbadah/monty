@@ -47,7 +47,7 @@ void errorHandler(int errId, ...)
         fprintf(stderr, "L%u: can't add, stack too short\n", va_arg(ag, unsigned int));
         break;
     case 10:
-        fprintf(stderr, "L%u: can't sub, stack too short", va_arg(ag, unsigned int));
+        fprintf(stderr, "L%u: can't sub, stack too short\n", va_arg(ag, unsigned int));
         break;
     default:
         break;
