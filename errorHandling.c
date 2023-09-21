@@ -5,6 +5,7 @@
 * 3 -> unknown instruction
 * 4 -> push integer
 * 5 -> memory allocation failed
+* 6 -> can't pint, stack empty
 */
 void errorHandler(int errId, ...)
 {
@@ -28,6 +29,9 @@ void errorHandler(int errId, ...)
         break;
     case 5:
         fprintf(stderr, "Error: malloc failed\n");
+        break;
+    case 6:
+        fprintf(stderr,"L%u: can't pint, stack empty\n", va_arg(ag, unsigned int));
         break;
     default:
         break;

@@ -18,9 +18,12 @@ void pallFunc(stack_t **stack, __attribute__((__unused__)) unsigned int line_num
 
 }
 
-void pintFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void pintFunc(stack_t **stack, unsigned int line_number)
 {
-    printf("pint\n");
+    if (*stack == NULL)
+    errorHandler(6, line_number);
+
+    printf("%d\n", (*stack)->n);
 }
 
 void popFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
