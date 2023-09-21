@@ -8,6 +8,7 @@
 * 6 -> can't pint, stack empty
 * 7 -> can't pop an empty stack.
 * 8 -> can't swap, stack too short.
+* 9 ->  can't add, stack too short
 */
 void errorHandler(int errId, ...)
 {
@@ -40,6 +41,9 @@ void errorHandler(int errId, ...)
         break;
     case 8:
         fprintf(stderr, "L%u: can't swap, stack too short\n", va_arg(ag, unsigned int));
+        break;
+    case 9:
+        fprintf(stderr, "L%u: can't add, stack too short\n", va_arg(ag, unsigned int));
         break;
     default:
         break;

@@ -63,7 +63,18 @@ void swapFunc(stack_t **stack, unsigned int line_number)
 
 }
 
-void addFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void addFunc(stack_t **stack, unsigned int line_number)
 {
-    printf("add\n");
+    int firstn;
+
+    if ((*stack == NULL) || ((*stack)->next == NULL))
+    errorHandler(9, line_number);
+
+    firstn = (*stack)->n;
+
+    popFunc(stack, line_number);
+
+    (*stack)->n += firstn;
+
+
 }
