@@ -52,6 +52,7 @@ void findtheFunction(char *opCode, unsigned int lineNumber);
 
 /*errorHandling*/
 void errorHandler(int errId, ...);
+void free_nodes();
 
 
 /*functions1.c*/

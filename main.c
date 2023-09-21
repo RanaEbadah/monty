@@ -17,5 +17,6 @@ int main(int argc, char *argv[])
         openFile(argv[1]);
     }
 
+    free_nodes();
     return (0);
 }

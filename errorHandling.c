@@ -6,6 +6,7 @@
 * 4 -> push integer
 * 5 -> memory allocation failed
 * 6 -> can't pint, stack empty
+* 7 -> can't pop an empty stack.
 */
 void errorHandler(int errId, ...)
 {
@@ -33,10 +34,29 @@ void errorHandler(int errId, ...)
     case 6:
         fprintf(stderr,"L%u: can't pint, stack empty\n", va_arg(ag, unsigned int));
         break;
+    case 7:
+        fprintf(stderr,"L%u: can't pop an empty stack\n", va_arg(ag, unsigned int));
+        break;
     default:
         break;
     }
 
     va_end(ag);
+    free_nodes();
     exit(EXIT_FAILURE);
+}
+
+void free_nodes()
+{
+	stack_t *tmp;
+
+	if (head == NULL)
+		return;
+
+	while (head != NULL)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp);
+	}
 }

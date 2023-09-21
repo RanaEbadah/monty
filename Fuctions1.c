@@ -26,9 +26,20 @@ void pintFunc(stack_t **stack, unsigned int line_number)
     printf("%d\n", (*stack)->n);
 }
 
-void popFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void popFunc(stack_t **stack, unsigned int line_number)
 {
-    printf("pop\n");
+    stack_t *temp;
+
+    if (stack == NULL)
+    errorHandler(7, line_number);
+
+    temp = *stack;
+
+    *stack = temp->next;
+    if(*stack != NULL)
+    (*stack)->prev = NULL;
+    
+    free(temp);
 }
 
 void swapFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
