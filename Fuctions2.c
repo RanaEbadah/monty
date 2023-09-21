@@ -2,7 +2,7 @@
 
 void doNothing(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
 {
-    printf("doNothing\n");
+    return;
 }
 
 void subFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
