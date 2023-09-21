@@ -7,7 +7,16 @@ void doNothing(__attribute__((__unused__)) stack_t **stack, __attribute__((__unu
 
 void subFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
 {
-    printf("sub\n");
+    int firstn;
+
+    if ((*stack == NULL) || ((*stack)->next == NULL))
+    errorHandler(10, line_number);
+
+    firstn = (*stack)->n;
+
+    popFunc(stack, line_number);
+
+    (*stack)->n -= firstn;
 }
 
 void divFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
