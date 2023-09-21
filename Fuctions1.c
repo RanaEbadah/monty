@@ -38,13 +38,29 @@ void popFunc(stack_t **stack, unsigned int line_number)
     *stack = temp->next;
     if(*stack != NULL)
     (*stack)->prev = NULL;
-    
+
     free(temp);
 }
 
-void swapFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)
+void swapFunc(stack_t **stack, unsigned int line_number)
 {
-    printf("swap\n");
+    stack_t *temp1, *temp2;
+
+    if ((*stack == NULL) || ((*stack)->next == NULL))
+    errorHandler(8, line_number);
+
+    temp1 = *stack;
+    temp2 = (*stack)->next;
+
+
+    temp1->next = temp2->next;
+    temp1->prev = temp2;
+
+    temp2->prev = NULL;
+    temp2->next = temp1; 
+
+    *stack = temp2;
+
 }
 
 void addFunc(__attribute__((__unused__)) stack_t **stack, __attribute__((__unused__)) unsigned int line_number)

@@ -7,6 +7,7 @@
 * 5 -> memory allocation failed
 * 6 -> can't pint, stack empty
 * 7 -> can't pop an empty stack.
+* 8 -> can't swap, stack too short.
 */
 void errorHandler(int errId, ...)
 {
@@ -36,6 +37,9 @@ void errorHandler(int errId, ...)
         break;
     case 7:
         fprintf(stderr,"L%u: can't pop an empty stack\n", va_arg(ag, unsigned int));
+        break;
+    case 8:
+        fprintf(stderr, "L%u: can't swap, stack too short\n", va_arg(ag, unsigned int));
         break;
     default:
         break;
